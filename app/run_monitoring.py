@@ -1,6 +1,7 @@
 import requests
 import json
 import datetime
+import random
 
 def test():
     r = requests.get("http://localhost:8983/solr/newcore/replication?command=details")
@@ -21,11 +22,11 @@ def status():
         bck = js["details"]["backup"]
         print("Backup information: Name " + str(bck[9]))
     except KeyError as ke:
-        print("No backup avaliable")
+        print("No backup avaliable for current index")
 
 def generate_bck(name):
     if len(name) < 3:
-        name = "bck"+ str(datetime.datetime.now())
+        name = "bck_"+ str(datetime.datetime.now().date()) + "_1"
     r = requests.get("http://localhost:8983/solr/newcore/replication?command=backup&name=" + str(name))
     print("Status: " + str(r.status_code))
 
@@ -34,7 +35,7 @@ def generate_bck(name):
 def main():
     print("Monitoring job")
     status()
-    # generate_bck("test")
+    generate_bck("nu")
 
 if __name__ == "__main__":
     main()

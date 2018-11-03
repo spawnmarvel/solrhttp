@@ -42,8 +42,7 @@ def main():
     print("Get job")
     # get_all()
     # get_info()
-    get_fields()
-    # get_docs()
+    get_docs()
 
 
 if __name__ == "__main__":
