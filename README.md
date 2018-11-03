@@ -2,15 +2,14 @@
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-A Python project for interacting with Solr, CRUD for index, monitoring and CU for schema in Solr.
+<br>
+A Python project for interacting with Solr, CRUD for index, monitoring and CU for schema in Solr using Python 3.4 and Visual studio code
 <br>
 * [Solr](http://lucene.apache.org/solr/guide//) - Solr Apache Solr Reference Guide 7.5
 * [Requests](http://docs.python-requests.org/en/master//) - Requests: HTTP for Humans
 <br>
-Python 3.4
-<br>
-Visual studio code
-<br>
+
+
 
 ### Pre
 
