@@ -37,11 +37,6 @@ def get_fields():
 def get_info():
     print("http://lucene.apache.org/solr/guide/7_5/the-standard-query-parser.html")
 
-def generate_test_data():
-    with open("testData.txt", "w") as f:
-        for x in range(0,2000):
-            obj = "" + str(x) + ";" + "Item" + str(x) + ";" + str("Description of " + str(x) + "\n")
-            f.write(obj)
 
 def main():
     print("Get job")
@@ -49,7 +44,6 @@ def main():
     # get_info()
     get_fields()
     # get_docs()
-    # generate_test_data()
 
 
 if __name__ == "__main__":
