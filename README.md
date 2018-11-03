@@ -14,7 +14,6 @@ A Python project for interacting with Solr, CRUD for index, monitoring and CU fo
 ### Tutorials and homepage
  * [e-lo](https://follow-e-lo.com///) - https://follow-e-lo.com/
 
-TBD
 
 ### Code choices
 One .py file for each module: get, index, monitoring, schema [...]
