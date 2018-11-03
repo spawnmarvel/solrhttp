@@ -32,7 +32,7 @@ Give an example
 
 ## Built With
 
-* [Requests](http://docs.python-requests.org/en/master//) - The web framework used
+* [Requests](http://docs.python-requests.org/en/master//) - Requests: HTTP for Humans
 
 
 ## Versioning
