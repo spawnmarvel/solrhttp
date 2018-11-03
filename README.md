@@ -5,7 +5,6 @@ These instructions will get you a copy of the project up and running on your loc
 A Python project for interacting with Solr, CRUD for index, monitoring and CU for schema in Solr.
 <br>
 * [Solr](http://lucene.apache.org/solr/guide//) - Solr Apache Solr Reference Guide 7.5
-<br>
 * [Requests](http://docs.python-requests.org/en/master//) - Requests: HTTP for Humans
 <br>
 Python 3.4
