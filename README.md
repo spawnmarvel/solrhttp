@@ -11,7 +11,8 @@ A Python project for interacting with Solr, CRUD for index, monitoring and CU fo
 
 
 
-### Pre
+### Tutorials and homepage
+ * [e-lo](https://follow-e-lo.com///) - https://follow-e-lo.com/
 
 TBD
 
