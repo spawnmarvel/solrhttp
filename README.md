@@ -2,8 +2,15 @@
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+A Python project for interacting with Solr, CRUD for index, monitoring and CU for schema in Solr.
 <br>
 * [Solr](http://lucene.apache.org/solr/guide//) - Solr Apache Solr Reference Guide 7.5
+<br>
+* [Requests](http://docs.python-requests.org/en/master//) - Requests: HTTP for Humans
+<br>
+Python 3.4
+<br>
+Visual studio code
 <br>
 
 ### Pre
@@ -11,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 TBD
 
 ### Code choices
-One .py file for each module, get, index, monitoring, schema [...]
+One .py file for each module: get, index, monitoring, schema [...]
 ### Installing
 
 Create a virtual env and install all the packets from requirements.txt
