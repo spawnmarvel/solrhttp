@@ -11,7 +11,7 @@ def test():
         print(k)
         print(v)
 
-def status():
+def status_core():
     r = requests.get("http://localhost:8983/solr/newcore/replication?command=details")
     print("Status: " + str(r.status_code))
     js = r.json()
@@ -34,8 +34,8 @@ def generate_bck(name):
 
 def main():
     print("Monitoring job")
-    status()
-    generate_bck("nu")
+    status_core()
+    # generate_bck("nu")
 
 if __name__ == "__main__":
     main()

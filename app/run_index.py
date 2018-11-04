@@ -4,7 +4,8 @@ import json
 
 def index_dt_xml():
     headers = { "Content-Type": "text/xml",}
-    data = '\n<add>\n  <doc>\n <field name="id">118</field>\n  <field name="tag">Test9</field>\n <field name="desc">Nith test tag</field>\n </doc>\n</add>'
+    data = '\n<add>\n  <doc>\n <field name="id">2000</field>\n  <field name="tag">Item-2000</field>\n <field name="desc">Description of 2000</field>\n  <field name="plant">System 2000</field>\n </doc>\n</add>'
+    print(data)
     resp = requests.post("http://localhost:8983/solr/newcore/update?commit=true", headers=headers, data=data)
     print(resp)
     # solr config <requestHandler name="/update" class="solr.UpdateRequestHandler" />
@@ -12,19 +13,35 @@ def index_dt_xml():
 
 def index_dt_test_data():
     headers = { "Content-Type": "text/xml",}
-    # with open("testData.txt", "r"):
-    data = '\n<add>\n  <doc>\n'
-    data+= '<field name="id">1</field>\n'
-    data+= '<field name="tag">Test9</field>\n'
-    data+= '<field name="desc">Nith test tag</field>\n'
-    data+= '</doc>\n</add>'
+    data = '\n<add>\n'
+    with open("testData.txt", "r") as f:
+        if f.readable():
+            tags = f.read().splitlines()
+            if len(tags) != 0:
+                for i, x in enumerate(tags):
+                    tag = tags[i].split(";")
+                    tag_id = tag[0]
+                    tag_name = tag[1]
+                    tag_desc = tag[2]
+                    tag_plant = tag[3]
+                    data+= '<doc>\n'
+                    data+= ' <field name="id">' + str(tag_id) + '</field>\n'
+                    data+= ' <field name="tag">' + str(tag_name) + '</field>\n'
+                    data+= ' <field name="desc">' + str(tag_desc) + '</field>\n'
+                    data+= ' <field name="plant">' + str(tag_plant) + '</field>\n'
+                    data+= '</doc>\n'
+            data+= '</add>'
+            print(data)
+                    
     resp = requests.post("http://localhost:8983/solr/newcore/update?commit=true", headers=headers, data=data)
     print(resp)
-
+    # debug error from solr
+    # print(resp.text)
 
 def index_remove_all():
      headers = { "Content-Type": "text/xml",}
      data = "<delete><query>*:*</query></delete>"
+     print("Remove all")
      resp = requests.post("http://localhost:8983/solr/newcore/update?commit=true", headers=headers, data=data)
      print(resp)
 
@@ -37,8 +54,9 @@ def index_remove_id(nr):
 def main():
     print("Index job")
     # index_dt_xml()
-    # index_remove_all()
-    index_dt_test_data()
+    index_remove_all()
+    # index_dt_test_data()
+
 
 
 

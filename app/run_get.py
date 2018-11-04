@@ -11,8 +11,16 @@ def get_all():
         print(k)
         print(v)
 
-def get_docs():
+def get_docs_default():
     r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*")
+    print("Solr status " + str(r.status_code))
+    js = r.json()
+    print("Docs")
+    for l in js["response"]["docs"]:
+        print(l)
+
+def get_docs_max(default=10000):
+    r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*&rows=" + str(default))
     print("Solr status " + str(r.status_code))
     js = r.json()
     print("Docs")
@@ -42,7 +50,7 @@ def main():
     print("Get job")
     # get_all()
     # get_info()
-    get_docs()
+    get_docs_max()
 
 
 if __name__ == "__main__":
