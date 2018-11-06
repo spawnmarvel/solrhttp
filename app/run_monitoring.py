@@ -3,10 +3,11 @@ import json
 import datetime
 import random
 
-def test():
+def get_dict():
     r = requests.get("http://localhost:8983/solr/newcore/replication?command=details")
     print("Solr status " + str(r.status_code))
     js = r.json()
+    print("Dict")
     for k, v in js.items():
         print(k)
         print(v)
@@ -34,6 +35,7 @@ def generate_bck(name):
 
 def main():
     print("Monitoring job")
+    get_dict()
     status_core()
     # generate_bck("nu")
 

@@ -2,7 +2,7 @@ import requests
 import json
 
 
-def index_dt_xml():
+def index_dt_item():
     headers = { "Content-Type": "text/xml",}
     data = '\n<add>\n  <doc>\n <field name="id">2000</field>\n  <field name="tag">Item-2000</field>\n <field name="desc">Description of 2000</field>\n  <field name="plant">System 2000</field>\n </doc>\n</add>'
     print(data)
@@ -31,7 +31,7 @@ def index_dt_test_data():
                     data+= ' <field name="plant">' + str(tag_plant) + '</field>\n'
                     data+= '</doc>\n'
             data+= '</add>'
-            print(data)
+            print("Test data indexed")
                     
     resp = requests.post("http://localhost:8983/solr/newcore/update?commit=true", headers=headers, data=data)
     print(resp)
@@ -53,9 +53,9 @@ def index_remove_id(nr):
 
 def main():
     print("Index job")
-    # index_dt_xml()
-    index_remove_all()
-    # index_dt_test_data()
+    # index_dt_item()
+    # index_remove_all()
+    index_dt_test_data()
 
 
 if __name__ == "__main__":

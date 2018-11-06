@@ -27,21 +27,6 @@ def get_docs_max(default=10000):
     for l in js["response"]["docs"]:
         print(l)
 
-def get_fields():
-    r = requests.get("http://localhost:8983/solr/newcore/schema/fields")
-    print("Solr status " + str(r.status_code))
-    js = r.json()
-    print(js)
-    print("Fields")
-    for k, v in js.items():
-        print(k)
-        print(v)
-    for l in js["fields"]:
-        for k, v in l.items():
-            if k == "name":
-                print(v)     
-   
-
 def get_info():
     print("http://lucene.apache.org/solr/guide/7_5/the-standard-query-parser.html")
 
