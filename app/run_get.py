@@ -16,16 +16,20 @@ def get_docs_default():
     print("Solr status " + str(r.status_code))
     js = r.json()
     print("Docs")
-    for l in js["response"]["docs"]:
+    li = js["response"]["docs"]
+    for l in li:
         print(l)
+    return li
 
 def get_docs_max(default=10000):
     r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*&rows=" + str(default))
     print("Solr status " + str(r.status_code))
     js = r.json()
     print("Docs")
-    for l in js["response"]["docs"]:
+    li = js["response"]["docs"]
+    for l in li:
         print(l)
+    return li
 
 def get_info():
     print("http://lucene.apache.org/solr/guide/7_5/the-standard-query-parser.html")
