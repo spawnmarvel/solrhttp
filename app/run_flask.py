@@ -13,7 +13,7 @@ def index():
                 data = run_get.get_docs_default()
             except Exception as e:
                 data = ["error", str(e)]
-    #is GET
+    #GET
     return render_template("index.html", data=data, req=req)
 
 

@@ -7,6 +7,8 @@ A Python project for interacting with Solr, CRUD for index, monitoring and CU fo
 <br>
 * [Solr](http://lucene.apache.org/solr/guide//) - Solr Apache Solr Reference Guide 7.5
 * [Requests](http://docs.python-requests.org/en/master//) - Requests: HTTP for Humans
+* [Flask](http://flask.pocoo.org/) - The web framework used
+* [Bootstrap](https://getbootstrap.com/) - Bootstrap
 <br>
 
 
