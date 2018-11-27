@@ -5,17 +5,21 @@
     <p>Request: {{ req }}</p>
     <br>
     <form action="/" method="POST">
-        <!-- post btn -->
-        <input type="submit" name="action" value="GetDefault" class="btn btn-primary" />
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <!-- post btn -->
+            <input type="submit" name="action" value="GetDefault" class="btn btn-secondary" />
+
+            <!-- post btn -->
+            <input type="submit" name="action" value="GetMax" class="btn btn-secondary" />
+            <!-- post btn -->
+            <input type="submit" name="action" value="Refresh" class="btn btn-secondary" />
+        </div>
         <br>
+
     </form>
     <br>
-    <form action="/" method="GET">
-        <!-- post btn -->
-        <input type="submit" name="action" value="Refresh" class="btn btn-primary" />
-        <br>
-    </form>
-    <br>
+
+
     {% for r in data %}
     <p> {{ r }}</p>
     {% endfor %}
