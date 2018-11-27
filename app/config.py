@@ -2,6 +2,6 @@
 
 DEBUG = True
 WTF_CSRF_ENABLE =True
-SECRET_KEY = "fttftf122323434343<<a12784596!@"
-SQLALCHEMY_DATABASE_URI = "database_.db"
+SECRET_KEY = "NeverUseThisInProduction"
+ # SQLALCHEMY_DATABASE_URI = "database_.db"
 SESSION_COOKIE_SECURE = True
