@@ -18,6 +18,7 @@ def index():
                 data = run_get.get_docs_max()
             except Exception as e:
                 data = ["error", str(e)]
+       
     #GET
     return render_template("index.html", data=data, req=req)
 

@@ -7,9 +7,11 @@ def get_all():
     print("Solr status " + str(r.status_code))
     js = r.json()
     print("All")
+    li = js["response"]["docs"]
     for k, v in js.items():
         print(k)
         print(v)
+    return li
 
 def get_docs_default():
     r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*")
