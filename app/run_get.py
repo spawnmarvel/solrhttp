@@ -6,31 +6,32 @@ def get_all():
     r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*")
     print("Solr status " + str(r.status_code))
     js = r.json()
-    print("All")
+    # print("All")
     li = js["response"]["docs"]
-    for k, v in js.items():
-        print(k)
-        print(v)
+    # for k, v in js.items():
+    #    print(k)
+    #    print(v)
     return li
 
-def get_docs_default():
-    r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*")
+def get_docs_default(url_to_use):
+    # r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*")
+    r = requests.get(str(url_to_use) + "/newcore/select?q=*:*")
     print("Solr status " + str(r.status_code))
     js = r.json()
-    print("Docs")
+    # print("Docs")
     li = js["response"]["docs"]
-    for l in li:
-        print(l)
+    # for l in li:
+    #    print(l)
     return li
 
 def get_docs_max(default=10000):
     r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*&rows=" + str(default))
     print("Solr status " + str(r.status_code))
     js = r.json()
-    print("Docs")
+    # print("Docs")
     li = js["response"]["docs"]
-    for l in li:
-        print(l)
+    # for l in li:
+    #    print(l)
     return li
 
 def get_info():

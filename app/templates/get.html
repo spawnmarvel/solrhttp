@@ -1,0 +1,31 @@
+{% extends "base.html" %} {% block title %}Flask Solr{% endblock %} {% block body %}
+
+<div class="container">
+    <h1></h1>
+    <p>Request: {{ req }}</p>
+    <br>
+    <p>Current URL: {{  local_url }}</p>
+    <br>
+    <form action="/get" method="POST">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            
+            <!-- post btn -->
+            <input type="submit" name="action" value="GetDefault" class="btn btn-primary" />
+            <!-- post btn -->
+            <input type="submit" name="action" value="GetMax" class="btn btn-secondary" />
+           
+            <!-- post btn -->
+            <input type="submit" name="action" value="Refresh" class="btn btn-primary" />
+        </div>
+        <br>
+    </form>
+    <br>
+
+
+    {% for r in data %}
+    <p> {{ r }}</p>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

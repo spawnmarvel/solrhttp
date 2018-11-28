@@ -5,3 +5,6 @@ app = Flask(__name__)
 from .home import home as home_blueprint
 app.register_blueprint(home_blueprint)
 
+from .get import get as get_blueprint
+app.register_blueprint(get_blueprint)
+
