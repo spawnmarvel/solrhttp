@@ -17,8 +17,13 @@ def index():
     #GET
     return render_template("index.html", data=data, req=req, local_urls=local_urls, local_url_selected=local_url_selected)
 
+@home.route("/about")
+def about():
+    return render_template("about.html")
 
 def set_url_selected():
+    dic = {}
+    #https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
     pass
 def get_url_select():
     msg = ""
