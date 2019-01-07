@@ -13,11 +13,12 @@ def index():
         if request.form["action"] == "GetDefault":
             try:
                 data = run_get.get_docs_default(local_url)
+                # data = run_get.get_docs_default("http://localhost:8993/solr")
             except Exception as e:
                 data = ["error", str(e)]
         if request.form["action"] == "GetMax":
             try:
-                data = run_get.get_docs_max()
+                data = run_get.get_docs_max(local_url)
             except Exception as e:
                 data = ["error", str(e)]
        

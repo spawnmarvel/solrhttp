@@ -7,13 +7,15 @@ from . import home
 def index():
     data = ""
     local_urls = prepare_urls()
+    print(local_urls)
     local_url_selected = get_url_select()
+    print(local_url_selected)
     req = "GET"
     if request.method == "POST":
         req = "POST"
         if request.form["action"] == "Set":
             local_url_selected = request.form["SelectUrl"]
-            set_url_selected()
+            set_url_selected(local_url_selected)
     #GET
     return render_template("index.html", data=data, req=req, local_urls=local_urls, local_url_selected=local_url_selected)
 
@@ -21,10 +23,27 @@ def index():
 def about():
     return render_template("about.html")
 
-def set_url_selected():
-    dic = {}
-    #https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
-    pass
+def set_url_selected(new_url):
+    try:
+        with open("index.json") as j:
+            js = json.load(j)
+            tmp_url = js["urls"]
+            tmp_current = js["current"]
+            dic = {"urls": tmp_url, "current": tmp_current}
+            print("\n")
+            print(new_url)
+            print(dic)
+            for u, p in zip(tmp_url, tmp_current):
+                if u == new_url:
+                    print("yes")
+                    dic["current"][p] = 1
+            print(dic)
+            #https://stackabuse.com/reading-and-writing-json-to-a-file-in-python/
+    except Exception as ex:
+        print(ex)
+    return ""
+
+
 def get_url_select():
     msg = ""
     url = ""
@@ -34,9 +53,9 @@ def get_url_select():
             js = json.load(j)
             tmp_url = js["urls"]
             tmp_current = js["current"]
-            for x in tmp_current:
-                if x == 1:
-                    cur = tmp_url[x]
+            for u, p in zip(tmp_url, tmp_current):
+                if p == 1:
+                    cur = u
                     msg = cur
     except Exception as ex:
         msg = ex
@@ -51,3 +70,6 @@ def prepare_urls():
     except Exception as ex:
         js = ex
     return js
+
+
+

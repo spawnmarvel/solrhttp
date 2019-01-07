@@ -15,7 +15,8 @@ def get_all():
 
 def get_docs_default(url_to_use):
     # r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*")
-    r = requests.get(str(url_to_use) + "/newcore/select?q=*:*")
+    url_full = url_to_use + "/newcore/select?q=*:*"
+    r = requests.get(url_full)
     print("Solr status " + str(r.status_code))
     js = r.json()
     # print("Docs")
@@ -24,8 +25,10 @@ def get_docs_default(url_to_use):
     #    print(l)
     return li
 
-def get_docs_max(default=10000):
+def get_docs_max(url_to_use, default=10000):
     r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*&rows=" + str(default))
+    url_full = url_to_use + "/newcore/select?q=*:*&rows=" + str(default)
+    r = requests.get(url_full)
     print("Solr status " + str(r.status_code))
     js = r.json()
     # print("Docs")
