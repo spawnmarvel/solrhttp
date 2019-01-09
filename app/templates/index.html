@@ -4,6 +4,8 @@
     <h1>Index</h1>
     <p>Request: {{ req }}</p>
     <br>
+    <p>Current URL: {{ local_url_selected }}</p>
+    <br>
     <p>Add URL's app/index.json</p>
     <form action="/" method="POST">
         <div class="form-group">
@@ -21,7 +23,6 @@
                 <input type="submit" name="action" value="Set" class="btn btn-primary" />
                 <br>
                 <br>
-                <p>Current URL: {{ local_url_selected }}</p>
             </div>
         </div>
 </div>

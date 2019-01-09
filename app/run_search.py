@@ -1,6 +1,22 @@
 import requests
 # http://lucene.apache.org/solr/guide/7_5/the-standard-query-parser.html
 
+
+def get_string_solr(user_input):
+    """Get 7 rows where desc has Gas"""
+    url = "http://localhost:8983/solr/newcore/select?q=desc:*"+ str(user_input) + "*&rows=7"
+    print(url)
+    # r = requests.get("http://localhost:8983/solr/newcore/select?q=desc:*Gas*&rows=7")
+    r = requests.get(url)
+    print("Solr status " + str(r.status_code))
+    js = r.json()
+    for l in js["response"]["docs"]:
+        # print(l)
+        pass
+    li = js["response"]["docs"]
+    return li
+
+
 def get_id():
     """Get id"""
     r = requests.get("http://localhost:8983/solr/newcore/select?q=id:1")

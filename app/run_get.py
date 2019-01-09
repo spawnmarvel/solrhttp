@@ -26,7 +26,7 @@ def get_docs_default(url_to_use):
     return li
 
 def get_docs_max(url_to_use, default=10000):
-    r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*&rows=" + str(default))
+    # r = requests.get("http://localhost:8983/solr/newcore/select?q=*:*&rows=" + str(default))
     url_full = url_to_use + "/newcore/select?q=*:*&rows=" + str(default)
     r = requests.get(url_full)
     print("Solr status " + str(r.status_code))
@@ -45,7 +45,7 @@ def main():
     print("Get job")
     # get_all()
     # get_info()
-    get_docs_max()
+    # get_docs_max()
 
 
 if __name__ == "__main__":
