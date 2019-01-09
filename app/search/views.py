@@ -17,11 +17,10 @@ def search_str():
             user_input = request.form["user_input"]
             rv = user_input
             if len(rv) < 2:
-                data = ["Blank input", "Blank input"]
+                data = ["Msg", "Blank input"]
             else:
                 try:
                     data = run_search.get_string_solr(rv)
-                    print("Methode   " + str(data))
                 except Exception as e:
                     data = ["error", str(e)]
     #GET
