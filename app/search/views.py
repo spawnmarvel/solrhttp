@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
 import json
 from home import views
-import run_search
 from . import search
+from app.dao import data_access_object
+
 
 @search.route("/search_str", methods=["GET", "POST"])
 def search_str():
@@ -20,7 +21,7 @@ def search_str():
                 data = ["Msg", "Blank input"]
             else:
                 try:
-                    data = run_search.get_string_solr(rv)
+                    data = data_access_object.DataAccess().search_string(rv)
                 except Exception as e:
                     data = ["error", str(e)]
     #GET
