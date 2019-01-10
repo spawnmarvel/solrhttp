@@ -6,7 +6,7 @@
     <br>
     <p>Current URL: {{ local_url_selected }}</p>
     <br>
-    <p>Search for a *description* (case sensitive, Gas is not gas), you searched for: {{ rv }}</p>
+    <p>Search (case sensitive), you searched for: {{ rv }} in : {{ param }}</p>
     <form action="/search_str" method="POST">
         <div class="form-group">
             <div class="col-xs-3">
@@ -14,11 +14,26 @@
 
                 <br>
                 <!-- post btn -->
-                <input type="submit" name="action" value="search_input" class="btn btn-primary" />
+                <input type="submit" name="action" value="Search" class="btn btn-primary" />
                 <br>
                 <br>
             </div>
         </div>
+         <!-- option value must match schema in SolR-->
+        <label class="radio-inline">
+            <input type="radio" name="options" value="id">Id
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="options" value="tag">Tag
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="options" value="plant">Plant
+        </label>
+         <label class="radio-inline">
+            <input type="radio" name="options" checked value="desc">Description
+        </label>
+
+        <br>
     </form>
     <br>
     <br>
